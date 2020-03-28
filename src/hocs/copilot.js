@@ -59,7 +59,7 @@ const copilot = ({
     };
 
     enableTouchesInTarget = ({ nativeEvent }) => {
-      if (!this.size || !this.layout) {
+      if (!this.state.visible || !this.size || !this.layout) {
         return false;
       }
       const touchX = nativeEvent.pageX;
