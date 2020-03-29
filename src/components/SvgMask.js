@@ -77,12 +77,14 @@ class SvgMask extends Component<Props, State> {
         Animated.timing(this.state.size, {
           toValue: size,
           duration: this.props.animationDuration,
-          easing: this.props.easing,
+          easing: this.props.easing,,
+          useNativeDriver: true
         }),
         Animated.timing(this.state.position, {
           toValue: position,
           duration: this.props.animationDuration,
           easing: this.props.easing,
+          useNativeDriver: true
         }),
       ]).start();
     } else {

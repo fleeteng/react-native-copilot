@@ -193,7 +193,8 @@ class CopilotModal extends Component<Props, State> {
           Animated.timing(this.state.animatedValues[key], {
             toValue: animate[key],
             duration: this.props.animationDuration,
-            easing: this.props.easing
+            easing: this.props.easing,
+            useNativeDriver: true
           })
         )
       ).start();
