@@ -201,13 +201,7 @@ const copilot = ({
       this.eventEmitter.emit("stop");
     };
 
-    progress = async () => {
-      if (this.isLastStep()) {
-        await this.stop();
-      } else {
-        await this.next();
-      }
-    };
+    progress = setTimeout(this.isLastStep() ? this.stop : this.next, 1000);
 
     async moveToCurrentStep(): void {
       this.size = await this.state.currentStep.target.measure();
