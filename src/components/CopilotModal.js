@@ -194,7 +194,7 @@ class CopilotModal extends Component<Props, State> {
             toValue: animate[key],
             duration: this.props.animationDuration,
             easing: this.props.easing,
-            useNativeDriver: true
+            useNativeDriver: false
           })
         )
       ).start();
