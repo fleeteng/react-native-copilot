@@ -48,7 +48,8 @@ const copilot = ({
   stopOnOutsideClick = false,
   svgMaskPath,
   verticalOffset = 0,
-  wrapperStyle
+  wrapperStyle,
+  progressDelay = 1000
 } = {}) => WrappedComponent => {
   class Copilot extends Component<any, State> {
     state = {
@@ -201,7 +202,10 @@ const copilot = ({
       this.eventEmitter.emit("stop");
     };
 
-    progress = setTimeout(this.isLastStep() ? this.stop : this.next, 1000);
+    progress = setTimeout(
+      this.isLastStep() ? this.stop : this.next,
+      progressDelay
+    );
 
     async moveToCurrentStep(): void {
       this.size = await this.state.currentStep.target.measure();
